@@ -15,6 +15,13 @@ namespace YGOProgressionHelper
         public MainForm()
         {
             InitializeComponent();
+            setInitialDirectories();
+        }
+
+        private void setInitialDirectories()
+        {
+            ydkDialog.InitialDirectory = Application.StartupPath;
+            csvDialog.InitialDirectory = Application.StartupPath;
         }
 
         private void ydkButton_Click(object sender, EventArgs e)
