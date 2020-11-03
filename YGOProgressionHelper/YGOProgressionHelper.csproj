@@ -47,6 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="YDKReader.cs" />
+    <Compile Include="YDKEntry.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
