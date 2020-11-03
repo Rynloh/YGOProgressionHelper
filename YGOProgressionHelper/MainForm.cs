@@ -48,5 +48,11 @@ namespace YGOProgressionHelper
             }
         }
 
+        private void importButton_Click(object sender, EventArgs e)
+        {
+            outputTextBox.Text = "";
+
+            outputTextBox.Text = "Import Successful!";
+        }
     }
 }
