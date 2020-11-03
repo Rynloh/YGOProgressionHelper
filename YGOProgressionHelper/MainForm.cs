@@ -62,7 +62,13 @@ namespace YGOProgressionHelper
                 setOutput("YDK File Does Not Exist!");
                 return;
             }
-            List<YDKEntry> ydkList = null;
+            if (string.IsNullOrEmpty(csvTextBox.Text))
+            {
+                setOutput("CSV File Not Set!");
+                return;
+            }
+
+            List<YDKEntry> ydkList;
             try
             {
                 ydkList = YDKReader.readYDKFile(ydkTextBox.Text);
