@@ -46,7 +46,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.94521F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 72.05479F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 137F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 138F));
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.ydkTextBox, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.ydkButton, 2, 0);
@@ -80,13 +80,14 @@
             this.ydkTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.ydkTextBox.Location = new System.Drawing.Point(107, 20);
             this.ydkTextBox.Name = "ydkTextBox";
-            this.ydkTextBox.Size = new System.Drawing.Size(263, 20);
+            this.ydkTextBox.ReadOnly = true;
+            this.ydkTextBox.Size = new System.Drawing.Size(262, 20);
             this.ydkTextBox.TabIndex = 1;
             // 
             // ydkButton
             // 
             this.ydkButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.ydkButton.Location = new System.Drawing.Point(376, 19);
+            this.ydkButton.Location = new System.Drawing.Point(375, 19);
             this.ydkButton.Name = "ydkButton";
             this.ydkButton.Size = new System.Drawing.Size(75, 23);
             this.ydkButton.TabIndex = 2;
@@ -109,13 +110,14 @@
             this.csvTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.csvTextBox.Location = new System.Drawing.Point(107, 83);
             this.csvTextBox.Name = "csvTextBox";
-            this.csvTextBox.Size = new System.Drawing.Size(263, 20);
+            this.csvTextBox.ReadOnly = true;
+            this.csvTextBox.Size = new System.Drawing.Size(262, 20);
             this.csvTextBox.TabIndex = 4;
             // 
             // csvButton
             // 
             this.csvButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.csvButton.Location = new System.Drawing.Point(376, 82);
+            this.csvButton.Location = new System.Drawing.Point(375, 82);
             this.csvButton.Name = "csvButton";
             this.csvButton.Size = new System.Drawing.Size(75, 23);
             this.csvButton.TabIndex = 5;
@@ -126,7 +128,7 @@
             // importButton
             // 
             this.importButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.importButton.Location = new System.Drawing.Point(201, 129);
+            this.importButton.Location = new System.Drawing.Point(200, 129);
             this.importButton.Name = "importButton";
             this.importButton.Size = new System.Drawing.Size(75, 23);
             this.importButton.TabIndex = 6;
