@@ -48,11 +48,30 @@ namespace YGOProgressionHelper
             }
         }
 
+        private void setOutput(string text)
+        {
+            outputTextBox.Text = text;
+        }
+
         private void importButton_Click(object sender, EventArgs e)
         {
-            outputTextBox.Text = "";
+            setOutput("");
 
-            outputTextBox.Text = "Import Successful!";
+            if (!System.IO.File.Exists(ydkTextBox.Text)) 
+            {
+                setOutput("YDK File Does Not Exist!");
+                return;
+            }
+            List<YDKEntry> ydkList = null;
+            try
+            {
+                ydkList = YDKReader.readYDKFile(ydkTextBox.Text);
+            } catch
+            {
+                setOutput("Failed to read YDK File!");
+                return;
+            }
+            setOutput("Import Successful!");
         }
     }
 }
