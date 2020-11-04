@@ -29,6 +29,8 @@ namespace YGOProgressionHelper
                 }
             }
 
+            file.Close();
+
             return output;
         }
     }
