@@ -115,6 +115,16 @@ namespace YGOProgressionHelper
                 }
             }
 
+            CardList lookupList = YGOAPI.lookupCards(lookupDict.Keys.ToList());
+            // Set the count of each of the cards that was just looked up.
+            // And add to the card dictionary
+            foreach(YGOCard card in lookupList.data)
+            {
+                card.count = lookupDict[card.id];
+                cardDict.Add(card.id, card);
+            }
+            
+
             setOutput("Import Successful!");
         }
     }
