@@ -22,7 +22,7 @@ namespace YGOProgressionHelper
                 string trimmed = line.Trim();
                 if (!trimmed.StartsWith("#") && !trimmed.StartsWith("!"))
                 {
-                    output.Add(new YDKEntry(trimmed));
+                    output.Add(new YDKEntry(int.Parse(trimmed)));
                 }
             }
 

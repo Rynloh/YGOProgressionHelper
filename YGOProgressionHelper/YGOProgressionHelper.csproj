@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CSVReader.cs" />
     <Compile Include="YDKReader.cs" />
     <Compile Include="YDKEntry.cs" />
     <Compile Include="MainForm.cs">

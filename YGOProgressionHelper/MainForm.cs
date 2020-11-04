@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace YGOProgressionHelper
 {
@@ -57,7 +58,7 @@ namespace YGOProgressionHelper
         {
             setOutput("");
 
-            if (!System.IO.File.Exists(ydkTextBox.Text)) 
+            if (!File.Exists(ydkTextBox.Text)) 
             {
                 setOutput("YDK File Does Not Exist!");
                 return;
@@ -65,6 +66,24 @@ namespace YGOProgressionHelper
             if (string.IsNullOrEmpty(csvTextBox.Text))
             {
                 setOutput("CSV File Not Set!");
+                return;
+            }
+
+            //Create CSV File if doesn't exist.
+            if (!File.Exists(csvTextBox.Text))
+            {
+                StreamWriter writer = File.CreateText(csvTextBox.Text);
+                writer.Close();
+            }
+
+            Dictionary<int, YGOCard> cardDict;
+            try
+            {
+                cardDict = CSVReader.readCSVFile(csvTextBox.Text);
+            }
+            catch
+            {
+                setOutput("Failed to read CSV File!");
                 return;
             }
 
@@ -77,6 +96,25 @@ namespace YGOProgressionHelper
                 setOutput("Failed to read YDK File!");
                 return;
             }
+
+            // For each entry in ydklist, if in dictionary add to count, else add to list to look up with api.
+            Dictionary<int, int> lookupDict = new Dictionary<int, int>();
+            foreach(YDKEntry entry in ydkList)
+            {
+                if (cardDict.ContainsKey(entry.ID))
+                {
+                    cardDict[entry.ID].count++;
+                }
+                else if (lookupDict.ContainsKey(entry.ID))
+                {
+                    lookupDict[entry.ID]++;
+                }
+                else
+                {
+                    lookupDict.Add(entry.ID, 1);
+                }
+            }
+
             setOutput("Import Successful!");
         }
     }

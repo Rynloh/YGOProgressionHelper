@@ -34,6 +34,30 @@ namespace YGOProgressionHelper
 
     public class YGOCard
     {
+        public static YGOCard fromTokens(string[] tokens)
+        {
+            YGOCard outCard = new YGOCard();
+            outCard.id = int.Parse(tokens[0]);
+            outCard.count = int.Parse(tokens[1]);
+            outCard.name = tokens[2];
+            outCard.type = tokens[3];
+            outCard.desc = tokens[4];
+            outCard.atk = int.Parse(tokens[5]);
+            outCard.def = int.Parse(tokens[6]);
+            outCard.level = int.Parse(tokens[7]);
+            outCard.race = tokens[8];
+            outCard.attribute = tokens[9];
+            outCard.scale = int.Parse(tokens[10]);
+            outCard.linkval = int.Parse(tokens[11]);
+            return outCard;
+        }
+
+        public string toCSVLine()
+        {
+            string output = $"{id}|{count}|{name}|{type}|{desc}|{atk}|{def}|{level}|{race}|{attribute}|{scale}|{linkval}";
+            return output;
+        }
+
         public int id { get; set; }
         public int count { get; set; }
         public string name { get; set; }
