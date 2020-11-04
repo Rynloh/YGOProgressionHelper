@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -62,7 +63,12 @@ namespace YGOProgressionHelper
         public int count { get; set; }
         public string name { get; set; }
         public string type { get; set; }
-        public string desc { get; set; }
+        private string _desc;
+        public string desc
+        {
+            set { _desc = value; }
+            get { return _desc.Replace("\n", "-").Replace("\r", "-"); }
+        }
         public int atk { get; set; }
         public int def { get; set; }
         public int level { get; set; }

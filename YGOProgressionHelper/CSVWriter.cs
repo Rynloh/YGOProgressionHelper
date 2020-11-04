@@ -12,6 +12,7 @@ namespace YGOProgressionHelper
         {
             // Create backup of csv file
             string backupPath = csvPath + ".backup";
+            System.IO.File.Delete(backupPath);
             System.IO.File.Copy(csvPath, backupPath);
 
             // Write each card to the csv file line by line.
