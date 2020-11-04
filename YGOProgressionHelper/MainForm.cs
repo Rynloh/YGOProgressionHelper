@@ -123,7 +123,15 @@ namespace YGOProgressionHelper
                 card.count = lookupDict[card.id];
                 cardDict.Add(card.id, card);
             }
-            
+
+            try
+            {
+                CSVWriter.writeCSV(cardDict.Values.ToList(), csvTextBox.Text);
+            } catch
+            {
+                setOutput("Failed to Write CSV File!");
+                return;
+            }
 
             setOutput("Import Successful!");
         }
