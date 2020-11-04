@@ -58,7 +58,7 @@ namespace YGOProgressionHelper
         {
             setOutput("");
 
-            if (!File.Exists(ydkTextBox.Text)) 
+            if (!File.Exists(ydkTextBox.Text))
             {
                 setOutput("YDK File Does Not Exist!");
                 return;
@@ -99,7 +99,7 @@ namespace YGOProgressionHelper
 
             // For each entry in ydklist, if in dictionary add to count, else add to list to look up with api.
             Dictionary<int, int> lookupDict = new Dictionary<int, int>();
-            foreach(YDKEntry entry in ydkList)
+            foreach (YDKEntry entry in ydkList)
             {
                 if (cardDict.ContainsKey(entry.ID))
                 {
@@ -115,13 +115,17 @@ namespace YGOProgressionHelper
                 }
             }
 
-            CardList lookupList = YGOAPI.lookupCards(lookupDict.Keys.ToList());
-            // Set the count of each of the cards that was just looked up.
-            // And add to the card dictionary
-            foreach(YGOCard card in lookupList.data)
-            {
-                card.count = lookupDict[card.id];
-                cardDict.Add(card.id, card);
+            // If there are cards to lookup from the API
+            if (lookupDict.Count > 0)
+            { 
+                CardList lookupList = YGOAPI.lookupCards(lookupDict.Keys.ToList());
+                // Set the count of each of the cards that was just looked up.
+                // And add to the card dictionary
+                foreach (YGOCard card in lookupList.data)
+                {
+                    card.count = lookupDict[card.id];
+                    cardDict.Add(card.id, card);
+                }
             }
 
             try
