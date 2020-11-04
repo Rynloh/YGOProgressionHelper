@@ -1,4 +1,4 @@
-# YGO Progression Manager
+# YGO Progression Helper
 This project implements a solution to track Yugioh cards for a drafting series such as Cimoooo's Progression series.
 
 This application will allow you to import a .ydk file, listing Yugioh card ids.
