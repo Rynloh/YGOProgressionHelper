@@ -48,7 +48,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.34951F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 61.65049F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 228F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 114F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 115F));
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.ydkTextBox, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
@@ -85,7 +85,7 @@
             this.ydkTextBox.Location = new System.Drawing.Point(67, 20);
             this.ydkTextBox.Name = "ydkTextBox";
             this.ydkTextBox.ReadOnly = true;
-            this.ydkTextBox.Size = new System.Drawing.Size(326, 20);
+            this.ydkTextBox.Size = new System.Drawing.Size(325, 20);
             this.ydkTextBox.TabIndex = 1;
             // 
             // label2
@@ -105,13 +105,13 @@
             this.csvTextBox.Location = new System.Drawing.Point(67, 83);
             this.csvTextBox.Name = "csvTextBox";
             this.csvTextBox.ReadOnly = true;
-            this.csvTextBox.Size = new System.Drawing.Size(326, 20);
+            this.csvTextBox.Size = new System.Drawing.Size(325, 20);
             this.csvTextBox.TabIndex = 4;
             // 
             // ydkButton
             // 
             this.ydkButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.ydkButton.Location = new System.Drawing.Point(399, 19);
+            this.ydkButton.Location = new System.Drawing.Point(398, 19);
             this.ydkButton.Name = "ydkButton";
             this.ydkButton.Size = new System.Drawing.Size(75, 23);
             this.ydkButton.TabIndex = 2;
@@ -122,7 +122,7 @@
             // csvButton
             // 
             this.csvButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.csvButton.Location = new System.Drawing.Point(399, 82);
+            this.csvButton.Location = new System.Drawing.Point(398, 82);
             this.csvButton.Name = "csvButton";
             this.csvButton.Size = new System.Drawing.Size(75, 23);
             this.csvButton.TabIndex = 5;
@@ -133,7 +133,7 @@
             // outputTextBox
             // 
             this.outputTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.outputTextBox.Location = new System.Drawing.Point(171, 134);
+            this.outputTextBox.Location = new System.Drawing.Point(170, 134);
             this.outputTextBox.Name = "outputTextBox";
             this.outputTextBox.ReadOnly = true;
             this.outputTextBox.Size = new System.Drawing.Size(222, 20);
@@ -142,9 +142,10 @@
             // importButton
             // 
             this.importButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.importButton.Enabled = false;
             this.importButton.Location = new System.Drawing.Point(67, 132);
             this.importButton.Name = "importButton";
-            this.importButton.Size = new System.Drawing.Size(98, 23);
+            this.importButton.Size = new System.Drawing.Size(97, 23);
             this.importButton.TabIndex = 6;
             this.importButton.Text = "Import";
             this.importButton.UseVisualStyleBackColor = true;

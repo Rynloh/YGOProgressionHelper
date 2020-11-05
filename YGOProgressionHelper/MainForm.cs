@@ -35,6 +35,7 @@ namespace YGOProgressionHelper
             {
                 ydkTextBox.Text = "";
             }
+            enableImport();
         }
 
         private void csvButton_Click(object sender, EventArgs e)
@@ -46,6 +47,15 @@ namespace YGOProgressionHelper
             } else
             {
                 csvTextBox.Text = "";
+            }
+            enableImport();
+        }
+
+        private void enableImport()
+        {
+            if(!string.IsNullOrEmpty(ydkTextBox.Text) && !string.IsNullOrEmpty(csvTextBox.Text))
+            {
+                importButton.Enabled = true;
             }
         }
 
@@ -138,6 +148,7 @@ namespace YGOProgressionHelper
             }
 
             setOutput("Import Successful!");
+            importButton.Enabled = false;
         }
     }
 }
