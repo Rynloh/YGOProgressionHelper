@@ -68,86 +68,15 @@ namespace YGOProgressionHelper
         {
             setOutput("");
 
-            if (!File.Exists(ydkTextBox.Text))
+            Importer importer = new Importer(ydkTextBox.Text, csvTextBox.Text);
+
+            if (!importer.verifyYDKPath())
             {
                 setOutput("YDK File Does Not Exist!");
                 return;
             }
-            if (string.IsNullOrEmpty(csvTextBox.Text))
-            {
-                setOutput("CSV File Not Set!");
-                return;
-            }
 
-            //Create CSV File if doesn't exist.
-            if (!File.Exists(csvTextBox.Text))
-            {
-                StreamWriter writer = File.CreateText(csvTextBox.Text);
-                writer.Close();
-            }
-
-            Dictionary<int, YGOCard> cardDict;
-            try
-            {
-                cardDict = CSVReader.readCSVFile(csvTextBox.Text);
-            }
-            catch
-            {
-                setOutput("Failed to read CSV File!");
-                return;
-            }
-
-            List<YDKEntry> ydkList;
-            try
-            {
-                ydkList = YDKReader.readYDKFile(ydkTextBox.Text);
-            } catch
-            {
-                setOutput("Failed to read YDK File!");
-                return;
-            }
-
-            // For each entry in ydklist, if in dictionary add to count, else add to list to look up with api.
-            Dictionary<int, int> lookupDict = new Dictionary<int, int>();
-            foreach (YDKEntry entry in ydkList)
-            {
-                if (cardDict.ContainsKey(entry.ID))
-                {
-                    cardDict[entry.ID].count++;
-                }
-                else if (lookupDict.ContainsKey(entry.ID))
-                {
-                    lookupDict[entry.ID]++;
-                }
-                else
-                {
-                    lookupDict.Add(entry.ID, 1);
-                }
-            }
-
-            // If there are cards to lookup from the API
-            if (lookupDict.Count > 0)
-            { 
-                CardList lookupList = YGOAPI.lookupCards(lookupDict.Keys.ToList());
-                // Set the count of each of the cards that was just looked up.
-                // And add to the card dictionary
-                foreach (YGOCard card in lookupList.data)
-                {
-                    card.count = lookupDict[card.id];
-                    cardDict.Add(card.id, card);
-                }
-            }
-
-            try
-            {
-                CSVWriter.writeCSV(cardDict.Values.ToList(), csvTextBox.Text);
-            } catch
-            {
-                setOutput("Failed to Write CSV File!");
-                return;
-            }
-
-            setOutput("Import Successful!");
+            setOutput(importer.import());
             importButton.Enabled = false;
         }
     }

@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="CSVReader.cs" />
     <Compile Include="CSVWriter.cs" />
+    <Compile Include="Importer.cs" />
     <Compile Include="YDKReader.cs" />
     <Compile Include="YDKEntry.cs" />
     <Compile Include="MainForm.cs">
